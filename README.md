@@ -1,6 +1,6 @@
 # getting-started-nodejs
 
-[![wercker status](https://app.wercker.com/status/7b1a402dd00d57fc9abddf9eb5161675/s "wercker status")](https://app.wercker.com/project/bykey/7b1a402dd00d57fc9abddf9eb5161675)
+[![wercker status](https://app.wercker.com/status/4acb4ef4ec36fffd4b56f3d01268071a/s/master "wercker status")](https://app.wercker.com/project/byKey/4acb4ef4ec36fffd4b56f3d01268071a)
 
 A sample application in Javascript on NodeJS for Wercker.
 
