@@ -29,3 +29,12 @@ build:
           echo "node version $(node -v) running"
           echo "npm version $(npm -v) running"
 
+deploy:
+  # push to registry
+  steps:
+    - internal/docker-push:
+        username: $USERNAME
+        password: $PASSWORD
+        tag: latest
+        repository: oci-cnp-dev/wercker-demo
+        registry: https://phx.ocir.io/v2/
