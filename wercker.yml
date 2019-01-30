@@ -32,15 +32,15 @@ build:
 deploy:
   # push to registry
   steps:
-    - internal/docker-push:
-        username: $USERNAME
-        password: $PASSWORD
-        tag: latest
-        repository: $DOCKER_REPO
-        registry: https://phx.ocir.io/v2/
-        ports: "8080"
-        cmd: npm start
-        working-dir: $WERCKER_ROOT
+  #   - internal/docker-push:
+  #       username: $USERNAME
+  #       password: $PASSWORD
+  #       tag: latest
+  #       repository: $DOCKER_REPO
+  #       registry: https://phx.ocir.io/v2/
+  #       ports: "8080"
+  #       cmd: npm start
+  #       working-dir: $WERCKER_ROOT
 
     # deploy app to OKE
     # https://github.com/wercker/step-bash-template
@@ -64,6 +64,11 @@ deploy:
         token: $OKE_TOKEN
         insecure-skip-tls-verify: true
         command: apply -f $WERCKER_OUTPUT_DIR/kubernetes/
+
+    # wait 10 seconds
+    - script:
+        name: Wait for deployment to exist
+        code: sleep 10
 
     # Tell Kubernetes that we're going to wait 60 seconds for the deploy to be successful
     - kubectl:
