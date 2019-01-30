@@ -38,3 +38,12 @@ deploy:
         tag: latest
         repository: oci-cnp-dev/wercker-demo
         registry: https://phx.ocir.io/v2/
+        ports: "8080"
+        cmd: npm start
+        working-dir: $WERCKER_ROOT
+
+
+# deploy-to-kubernetes:
+#   # deploy app to OKE
+#   steps:
+
