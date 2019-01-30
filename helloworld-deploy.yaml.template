@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: helloworld
+  namespace: wercker
+  labels:
+    commit: ${WERCKER_GIT_COMMIT}
+spec:
+  selector:
+    matchLabels:
+      app: helloworld
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: helloworld
+        commit: ${WERCKER_GIT_COMMIT}
+    spec:
+      containers:
+      - name: helloworld
+        image: ${DOCKER_REPO}:latest
+        ports:
+        - name: helloworld
+          containerPort: 8080
+          protocol: TCP
+      imagePullSecrets:
+      - name: ${OKE_IMAGESECRET}
