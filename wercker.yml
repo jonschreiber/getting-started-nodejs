@@ -76,6 +76,7 @@ deploy:
     #     server: $OKE_MASTER
     #     token: $OKE_TOKEN
     #     insecure-skip-tls-verify: true
+    #     raw-global-args: -n wercker
     #     command: patch deployment/helloworld -p '{"spec":{"progressDeadlineSeconds":60}}'
 
     # Watch the Kubernetes deployment. Once the pods are considered healthy the step will exit 0
@@ -85,5 +86,6 @@ deploy:
         server: $OKE_MASTER
         token: $OKE_TOKEN
         insecure-skip-tls-verify: true
+        raw-global-args: -n wercker
         command: rollout status deployment/helloworld
 
